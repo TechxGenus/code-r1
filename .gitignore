@@ -1,6 +1,6 @@
 # code r1
 data/
-models/
+models*/
 
 **/*.pt
 **/checkpoints
