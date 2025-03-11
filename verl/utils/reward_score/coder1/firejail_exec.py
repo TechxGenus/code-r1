@@ -141,6 +141,7 @@ def code_exec_firejail(code, stdin: str = None, timeout=_DEFAULT_TIMEOUT_SECONDS
                     stderr=subprocess.PIPE,
                     env=env,
                     check=False,
+                    timeout=timeout
                 )
         else:
             if len(code) < CLI_ARG_SIZE_LIMIT:
@@ -160,7 +161,8 @@ def code_exec_firejail(code, stdin: str = None, timeout=_DEFAULT_TIMEOUT_SECONDS
                                         stdout=subprocess.PIPE,
                                         stderr=subprocess.PIPE,
                                         env=env,
-                                        check=False)
+                                        check=False,
+                                        timeout=timeout)
             else:
                 with NamedTemporaryFile(suffix='.py', delete=False) as tmp:
                     tmp_name = tmp.name
@@ -187,7 +189,8 @@ def code_exec_firejail(code, stdin: str = None, timeout=_DEFAULT_TIMEOUT_SECONDS
                                             stdout=subprocess.PIPE,
                                             stderr=subprocess.PIPE,
                                             env=env,
-                                            check=False)
+                                            check=False,
+                                            timeout=timeout)
                     
                     # Clean up the temporary files
                     try:
